@@ -5,7 +5,7 @@
 <%= user.email %>
 <br>
 <b>Confirmation:</b>
-<%= user.confirmed? %>
+<%= boolean_label(user.confirmed?) %>
 <br>
 <b><%= 'sign_in_count'.humanize %>:</b>
 <%= user.sign_in_count %>
@@ -29,7 +29,13 @@
 <%= user.active_roles.join(", ") %>
 <br>
 <% if current_user.admin? %>
-  <%= link_to "Edit roles", edit_user_path(user) %>
-  <%= link_to ban_status(user), ban_user_path(user), method: :patch %>
-  <%= link_to "Delete", user, method: :delete, data: {confirm: "Are you sure"} %>
+  <%= link_to edit_user_path(user), class: "btn btn-sm btn-success" do %>
+    <i class="fas fa-user-edit"></i> Edit
+  <% end %>
+  <%= link_to ban_user_path(user), method: :patch, class: "btn btn-sm btn-dark" do %>
+   <i class="fas fa-hammer"></i> <%= ban_status(user) %>
+  <% end %>
+  <%= link_to user, method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-sm btn-danger" do %>
+    <i class="fas fa-trash"></i> Delete
+  <% end %>
 <% end %>
