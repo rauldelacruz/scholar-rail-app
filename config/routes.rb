@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { confirmations: 'confirmations' }
 
-  resources :users, only: [:index, :show, :destroy] do
+  resources :users, only: [:index, :show, :destroy, :edit, :update] do
     member do
       patch :ban
     end
