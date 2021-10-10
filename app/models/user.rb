@@ -7,6 +7,12 @@ class User < ApplicationRecord
   
   include Roleable
   
+  before_create :skip
+
+  def skip
+    self.skip_confirmation!
+  end
+
   after_create do
     # assign default role
     self.update(student: true)

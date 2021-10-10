@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { confirmations: 'confirmations' }
+  resources :classrooms
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    confirmations: 'users/confirmations' }
 
   resources :users, only: [:index, :show, :destroy, :edit, :update] do
     member do
