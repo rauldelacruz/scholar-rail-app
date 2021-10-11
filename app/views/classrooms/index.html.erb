@@ -23,7 +23,7 @@
         <%= content_tag :tr, id: dom_id(classroom), class: dom_class(classroom) do %>
           <td><%= link_to classroom.id, classroom %></td>
           
-            <td><%= classroom.name %></td>
+            <td><%= classroom %></td>
           
           <td>
             <%= link_to 'Edit', edit_classroom_path(classroom), class: 'btn btn-sm btn-warning' %>
