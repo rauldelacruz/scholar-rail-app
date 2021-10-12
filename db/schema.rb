@@ -37,11 +37,13 @@ ActiveRecord::Schema.define(version: 2021_10_12_025455) do
   create_table "lessons", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "classroom_id", null: false
+    t.bigint "course_id", null: false
     t.string "status", default: "planned"
     t.datetime "start"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["classroom_id"], name: "index_lessons_on_classroom_id"
+    t.index ["course_id"], name: "index_lessons_on_course_id"
     t.index ["user_id"], name: "index_lessons_on_user_id"
   end
 
@@ -96,5 +98,6 @@ ActiveRecord::Schema.define(version: 2021_10_12_025455) do
   add_foreign_key "courses", "services"
   add_foreign_key "courses", "users"
   add_foreign_key "lessons", "classrooms"
+  add_foreign_key "lessons", "courses"
   add_foreign_key "lessons", "users"
 end

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :lessons
-  resources :courses
   resources :services
   resources :classrooms
   devise_for :users, controllers: {
@@ -12,6 +11,12 @@ Rails.application.routes.draw do
       patch :ban
       patch :resend_confirmation_instructions
       patch :resend_invitation
+    end
+  end
+
+  resources :courses do
+    member do
+      patch :generate_lessons
     end
   end
   
