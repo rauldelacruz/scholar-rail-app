@@ -1,7 +1,7 @@
 <h3>
   <div class="text-center">
     Courses
-    <div class="badge badge-info">
+    <div class="badge bg-info">
       <%= @courses.count %>
     </div>
     <%= link_to "New course", new_course_path, class: 'btn btn-primary' %>
@@ -28,10 +28,11 @@
             <td><%= course.user %></td>
             <td><%= course.classroom %></td>
             <td><%= course.service %></td>
-            <td><%= course.start_time&.strftime("%H:%M") %></td>
+            <td><%= course.start_time %></td>
             <td><%= course.active_days.join(", ") %></td>
-            <td><% course.schedule.occurrences(Time.now + 1.week).each do |occurrence| %>
-                <%= occurrence&.strftime("%d/%b/%y") %>
+            <td><% course.schedule.next_occurrences(8).each do |occurrence| %>
+
+                <%= occurrence %>
                 <br>
               <% end %>
               <%= link_to "Generate lessons", generate_lessons_course_path(course), method: :patch %>

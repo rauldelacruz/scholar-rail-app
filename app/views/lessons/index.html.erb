@@ -1,7 +1,7 @@
 <h3>
   <div class="text-center">
     Lessons
-    <div class="badge badge-info">
+    <div class="badge bg-info">
       <%= @lessons.count %>
     </div>
     <%= link_to "New lesson", new_lesson_path, class: 'btn btn-primary' %>
@@ -16,6 +16,8 @@
         <th>User</th>
         
         <th>Classroom</th>
+        
+        <th>Course</th>
         
         <th>Status</th>
         
@@ -32,6 +34,8 @@
             <td><%= lesson.user %></td>
           
             <td><%= lesson.classroom %></td>
+          
+            <td><%= lesson.course_id %></td>
           
             <td><%= lesson.status %></td>
           
