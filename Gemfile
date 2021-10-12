@@ -36,10 +36,6 @@ gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'invisible_captcha'
 
-group :production do
-  gem 'exception_notification'
-end
-
 gem 'simple_form'
 gem 'ice_cube'
-gem "simple_calendar", "~> 2.0"
+gem "simple_calendar", "~> 2.4"
