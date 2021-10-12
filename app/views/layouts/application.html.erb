@@ -15,14 +15,10 @@
     <%= render "layouts/header" %>
     <%= render "layouts/messages" %>
       <div class="container-fluid">
-
       <br/>
       <%= yield %>
     </div>
   </body>
-  <footer class="bg-dark text-light">
-    <div class="container">
-      <p/><%= link_to "Privacy Policy", privacy_policy_path %><p/>
-    </div>
-  </footer>
+  <p>
+  <%= render "layouts/footer" %>
 </html>

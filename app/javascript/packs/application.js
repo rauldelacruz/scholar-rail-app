@@ -16,7 +16,9 @@ import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap'
 import 'stylesheets/application'
 import "@fortawesome/fontawesome-free/css/all"
+import "../stylesheets/application"
 
 global.toastr = require("toastr")
 
-import "../stylesheets/application"
+require("jquery")
+require("@nathanvda/cocoon")
