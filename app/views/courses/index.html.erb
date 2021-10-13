@@ -18,6 +18,9 @@
         <th>Start Time</th>
         <th>Days</th>
         <th>Occurrences</th>
+        <th>Enrollments</th>
+        <th>Lessons</th>
+        <th>Attendances</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -31,12 +34,14 @@
             <td><%= course.start_time %></td>
             <td><%= course.active_days.join(", ") %></td>
             <td><% course.schedule.next_occurrences(8).each do |occurrence| %>
-
                 <%= occurrence %>
                 <br>
               <% end %>
               <%= link_to "Generate lessons", generate_lessons_course_path(course), method: :patch %>
             </td>
+            <td><%= course.enrollments.count %></td>
+            <td><%= course.lessons.count %></td>
+            <td><%= course.attendances.count %></td>
           <td>
             <%= link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning' %>
             <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
