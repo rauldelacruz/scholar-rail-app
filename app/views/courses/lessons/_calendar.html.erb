@@ -7,7 +7,7 @@
         <% lessons.each do |lesson| %>
           <div>
             Id:
-            <%= link_to lesson.id, lesson_path(lesson) %>
+            <%= link_to lesson.id, edit_course_lesson_path(lesson.course, lesson) %> 
             Course:
             <%= link_to lesson.course_id, course_path(lesson.course) %>
             User:
@@ -16,10 +16,10 @@
             <%= link_to lesson.classroom_id, classroom_path(lesson.classroom) %>
             Start:
             <%= lesson.start.strftime("%H:%M") %>
-            <%= lesson.status %>
+            <%= status_label(lesson.status) %>
             <% lesson.attendances.each do |attendance| %>
               <%= attendance.user %>
-              <%= attendance.status %>
+              <%= status_label(attendance.status) %>
             <% end %>
           </div>
         <% end %>

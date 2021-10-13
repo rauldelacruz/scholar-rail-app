@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :lessons
+
   resources :services
   resources :classrooms
   devise_for :users, controllers: {
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :courses do
+    resources :lessons, controller: "courses/lessons"
     member do
       patch :generate_lessons
     end

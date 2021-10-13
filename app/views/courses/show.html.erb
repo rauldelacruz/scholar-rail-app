@@ -17,6 +17,7 @@
     <br>
     <b>Service:</b>
     <%= @course.service %>
+    
     <br>
     <b>Start Time:</b>
     <%= @course.start_time&.strftime("%H:%M") %>
@@ -52,4 +53,4 @@
   </table>
 </div>
 
-<%= render 'lessons/calendar' %>
+<%= render 'courses/lessons/calendar' %>
