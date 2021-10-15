@@ -15,15 +15,13 @@ Rails.application.routes.draw do
   end
 
   resources :courses do
-    resources :lessons, controller: "courses/lessons"
+    resources :lessons, except: [:index, :show], controller: "courses/lessons"
     member do
       patch :generate_lessons
     end
   end
   
   root "static_pages#landing_page"
-  # get 'static_pages/landing_page'
-  # get 'static_pages/privacy_policy'
   get "privacy_policy", to: "static_pages#privacy_policy"
   get "calendar", to: "static_pages#calendar"
 end
