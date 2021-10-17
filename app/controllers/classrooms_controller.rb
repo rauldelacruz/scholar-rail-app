@@ -42,10 +42,10 @@ class ClassroomsController < ApplicationController
   end
 
   def destroy
-    @classroom.destroy
-    respond_to do |format|
-      format.html { redirect_to classrooms_url, notice: 'Classroom was successfully destroyed.' }
-      format.json { head :no_content }
+    if @classroom.destroy
+      redirect_to classrooms_url, notice: 'Classroom was successfully destroyed.'
+    else
+      redirect_to classrooms_url, alert: 'Classroom has courses. Can not be deleted.'
     end
   end
 
