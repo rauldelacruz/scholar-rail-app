@@ -40,3 +40,4 @@ gem 'simple_form'
 gem 'ice_cube'
 gem "simple_calendar", "~> 2.4"
 gem "cocoon"
+gem 'money-rails', '~>1.12'
