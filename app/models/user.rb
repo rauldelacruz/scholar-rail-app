@@ -9,11 +9,17 @@ class User < ApplicationRecord
          :confirmable, :trackable, :lockable, :invitable
   
   include Roleable
+
+  monetize :student_total, as: :student_total_cents
   
   before_create :skip
 
   def skip
     self.skip_confirmation!
+  end
+
+  after_touch do
+    calculate_student_total
   end
 
   after_create do
@@ -27,6 +33,12 @@ class User < ApplicationRecord
 
   def to_label
     to_s
+  end
+
+  private
+
+  def calculate_student_total
+    update_column :student_total, attendances.map(&:student_price_final).sum
   end
   
 end

@@ -9,3 +9,11 @@ Classroom.create(name: "Room3")
 Service.create(name: "Algebra", duration: 45, client_price: 0)
 Service.create(name: "Javascript", duration: 45, client_price: 0)
 Service.create(name: "Italian", duration: 45, client_price: 0)
+
+Course.create(user: User.first, classroom: Classroom.first, service: Service.first)
+Course.first.update(monday: true, wednesday: true)
+Course.first.update(start_time: Time.now + 1.day)
+
+Course.create(user: User.second, classroom: Classroom.second, service: Service.second)
+Course.second.update(tuesday: true, thursday: true)
+Course.second.update(start_time: Time.now + 1.day)

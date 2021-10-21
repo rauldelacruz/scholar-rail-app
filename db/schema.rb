@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_041747) do
+ActiveRecord::Schema.define(version: 2021_10_21_043002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2021_10_13_041747) do
     t.string "status", default: "planned"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "student_price_start", default: 0, null: false
+    t.integer "student_price_final", default: 0, null: false
     t.index ["lesson_id"], name: "index_attendances_on_lesson_id"
     t.index ["user_id"], name: "index_attendances_on_user_id"
   end
@@ -103,6 +105,7 @@ ActiveRecord::Schema.define(version: 2021_10_13_041747) do
     t.string "invited_by_type"
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
+    t.integer "student_total", default: 0, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
