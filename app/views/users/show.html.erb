@@ -60,6 +60,9 @@
     <b><%= 'teacher_total'.humanize %>:</b>
     <%= @user.teacher_total_cents %>
     <br>
+    <b><%= 'balance'.humanize %>:</b>
+    <%= @user.balance_cents %>
+    <br>
   </div>
   <div class="card-footer">
     <%= link_to "All Users", users_path %>
