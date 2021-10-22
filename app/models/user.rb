@@ -11,7 +11,8 @@ class User < ApplicationRecord
   include Roleable
 
   monetize :student_total, as: :student_total_cents
-  
+  monetize :teacher_total, as: :teacher_total_cents
+
   before_create :skip
 
   def skip
@@ -20,6 +21,7 @@ class User < ApplicationRecord
 
   after_touch do
     calculate_student_total
+    calculate_teacher_total
   end
 
   after_create do
@@ -39,6 +41,10 @@ class User < ApplicationRecord
 
   def calculate_student_total
     update_column :student_total, attendances.map(&:student_price_final).sum
+  end
+
+  def calculate_teacher_total
+    update_column :teacher_total, lessons.map(&:teacher_price_final).sum
   end
   
 end
